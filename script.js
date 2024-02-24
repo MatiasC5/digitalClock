@@ -7,9 +7,9 @@ let hours = currentDate.getHours();
 let minutes = currentDate.getMinutes();
 let seconds = currentDate.getSeconds();
 
-const day = currentDate.getDate();
-const month = currentDate.getMonth();
-const year = currentDate.getFullYear();
+let day = currentDate.getDate();
+let month = currentDate.getMonth();
+let year = currentDate.getFullYear();
 
 const dayName = [
   "Sunday",
