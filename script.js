@@ -1,8 +1,5 @@
 const clock = document.querySelector(".clock");
-
-const day = document.getElementById("day");
-const month = document.getElementById("month");
-const year = document.getElementById("year");
+const date = document.querySelector(".date");
 
 const currentDate = new Date();
 
@@ -10,7 +7,11 @@ let hours = currentDate.getHours();
 let minutes = currentDate.getMinutes();
 let seconds = currentDate.getSeconds();
 
-const dayNames = [
+const day = currentDate.getDate();
+const month = currentDate.getMonth();
+const year = currentDate.getFullYear();
+
+const dayName = [
   "Sunday",
   "Monday",
   "Tuesday",
@@ -20,7 +21,7 @@ const dayNames = [
   "Saturday",
 ];
 
-const monthNames = [
+const monthName = [
   "January",
   "February",
   "March",
@@ -35,14 +36,13 @@ const monthNames = [
   "December",
 ];
 
-const daysWeek = dayNames[currentDate.getDay()];
-const monthName = monthNames[currentDate.getMonth()];
-function currentTime() {
-  month.textContent = `${monthName} ${currentDate.getMonth() + 1},`;
-  currentDate.getMonth() + 1;
-  year.textContent = currentDate.getFullYear();
+setInterval(() => {
+  setClock();
+}, 1000);
 
+function setClock() {
   seconds++;
+
   if (seconds >= 60) {
     seconds = 0;
     minutes++;
@@ -57,12 +57,12 @@ function currentTime() {
   seconds < 10 ? (seconds = `0${seconds}`) : (seconds = `${seconds}`);
   minutes < 10 ? (minutes = `0${minutes}`) : (minutes = `${minutes}`);
   hours < 10 ? (hours = `0${hours}`) : (hours = `${hours}`);
+
   let currentTime = `${hours} : ${minutes} : ${seconds}`;
+  const dayOfWeek = `${dayName[day]}, ${monthName[month]} ${day}, ${year}`;
 
   clock.innerHTML = currentTime;
+  date.innerHTML = dayOfWeek;
 }
 
-setInterval(() => {
-  currentTime();
-}, 1000);
-currentTime();
+setClock();

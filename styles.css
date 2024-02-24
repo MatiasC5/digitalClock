@@ -7,10 +7,13 @@ main {
 .clock {
     display: flex;
     gap: 4px;
-    border: solid 2px black;
+    border: solid 4px rgb(228, 102, 102);
     width: fit-content;
-    font-size: 50px;
+    font-size: 100px;
     padding: 5px;
+    margin-top: 5px;
+    background-color: rgb(47, 46, 46);
+    color: white;
 }
 
 .date { 
